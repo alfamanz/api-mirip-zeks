@@ -34,8 +34,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var router  = express.Router();
-var creator = 'ZeeoneOfc' // ubah jadi nama lu
-const listkey = ["Alphabot","Zeeone","ZeeoneOfc"]; // ubah apikey nya, tambah aja klo mau
+var creator = 'Alfa' // ubah jadi nama lu
+const listkey = ["alfa","salzy"]; // ubah apikey nya, tambah aja klo mau
 
 var { otakudesu, covid, ongoing, komiku, tebakgambar, surah, sholat, lirik, chara,wattpad, playstore, linkwa, pinterest ,igdl,igstory, igstalk,twitter,fbdown,youtube,ttdownloader} = require(__path + '/lib/scrape.js');
 var { color, bgcolor } = require(__path + '/lib/color.js');
@@ -2052,6 +2052,94 @@ router.get('/anime/samehadaku_page', async (req, res, next) => {
 })
 
 //nsfw
+router.get('/nsfw/waifu', async (req, res, next) => {
+  var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://api.waifu.pics/nsfw/waifu`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data.url
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
+})
+router.get('/nsfw/neko', async (req, res, next) => {
+  var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://api.waifu.pics/nsfw/neko`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data.url
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
+})
+router.get('/nsfw/trap', async (req, res, next) => {
+  var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://api.waifu.pics/nsfw/trap`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data.url
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
+})
+router.get('/nsfw/blowjob', async (req, res, next) => {
+  var apikey = req.query.apikey
+       	var text = req.query.page
+       	if(!apikey) return res.json(loghandler.apikey)
+        if(listkey.includes(apikey)){
+       fetch(encodeURI(`https://api.waifu.pics/nsfw/blowjob`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data.url
+             res.json({
+             	creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.apikey)
+}
+})
 router.get('/nsfw/ass', async (req, res, next) => {
           var apikey = req.query.apikey
        	var text = req.query.page
